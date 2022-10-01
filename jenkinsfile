@@ -6,18 +6,18 @@ def jsonParse(def json) {
 pipeline {
   agent { label 'principal' }
   environment {
-    appName = "variable" 
+    appName = "hola mundo" 
   }
   stages {
 
-  stage("paso 1"){
-      
-        steps {
-            script {			
-                echo appName
-          }
+    stage("paso 1"){
+      steps {
+          script {			
+              echo appName
         }
       }
+    }
+    
   }
   post {
         always {          
