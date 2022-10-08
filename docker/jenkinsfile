@@ -31,9 +31,18 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    dh = new File('.')
-                    dh.eachFile {
-                    println(it)
+                    @NonCPS
+                    def getTags (svnurl) {
+                        def command = ["svn","ls","${svnurl}"];
+                        def proc = command.execute()
+                        proc.waitFor()
+
+                        proc.in.eachLine {
+                            println(it)
+                        }    
+                    }
+
+                    getTags('http://svnurlexample.net/');
                 }
                  }
                 
