@@ -31,20 +31,8 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    @NonCPS
-                    def getTags (svnurl) {
-                        def command = ["svn","ls","${svnurl}"];
-                        def proc = command.execute()
-                        proc.waitFor()
-
-                        proc.in.eachLine {
-                            println(it)
-                        }    
-                    }
-
-                    getTags('http://svnurlexample.net/');
+                    docker -version
                 }
-                 }
                 
             }    
             // steps {
