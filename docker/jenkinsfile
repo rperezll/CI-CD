@@ -31,22 +31,23 @@ pipeline {
         stage('build') {
             steps {
                 script{
-                    docker build docker/ -t ${name_imagen}:${tag_imagen}
+                    // docker build -t ${name_imagen}:${tag_imagen}
+                    echo dir
                     }
                     
                 }                    
                                   
             }
-            stage('run') {
-            steps {
-                script{
+            // stage('run') {
+            // steps {
+            //     script{
                     
-                        docker run -dp ${puerto_imagen}:80 --name ${name_final} ${name_imagen}:${tag_imagen}
-                    }
+            //             docker run -dp ${puerto_imagen}:80 --name ${name_final} ${name_imagen}:${tag_imagen}
+            //         }
                     
-                }                    
+            //     }                    
                                   
-            }
+            // }
             
           
         }   
