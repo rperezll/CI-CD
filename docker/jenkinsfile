@@ -30,10 +30,13 @@ pipeline {
            
         stage('build') {
             steps {
-                dh = new File('.')
-                dh.eachFile {
+                script{
+                    dh = new File('.')
+                    dh.eachFile {
                     println(it)
                 }
+                 }
+                
             }    
             // steps {
             //     script{
