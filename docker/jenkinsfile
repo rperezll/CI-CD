@@ -29,10 +29,12 @@ pipeline {
           //   }
            
         stage('build') {
-            dh = new File('.')
-            dh.eachFile {
-                println(it)
-            }
+            steps {
+                dh = new File('.')
+                dh.eachFile {
+                    println(it)
+                }
+            }    
             // steps {
             //     script{
             //         docker build -t ${name_imagen}:${tag_imagen}
